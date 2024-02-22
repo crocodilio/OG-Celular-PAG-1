@@ -1,4 +1,63 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
+	<html>
+<head>
+  <style>
+    .text {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+    .red {
+      color: red;
+    }
+  </style>
+
+  <!-- Adicione a div vazia no cabeçalho -->
+  <div id="customHeader"></div>
+
+  <script>
+    // Função para adicionar o código ao cabeçalho
+    function addCustomHeader() {
+      const customHeader = document.getElementById('customHeader');
+
+      // Crie um novo script
+      const scriptElement = document.createElement('script');
+      scriptElement.innerHTML = `
+        const currentDate = new Date();
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        const monthNames = [
+          'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+          'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ];
+        const month = monthNames[currentDate.getMonth()];
+        const year = currentDate.getFullYear().toString().substr(-2);
+        const daysOfWeek = [
+          'Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'
+        ];
+        const dayOfWeek = daysOfWeek[currentDate.getDay()];
+
+        // Adicione as informações ao cabeçalho
+        document.getElementById('customHeader').innerHTML = \`
+          <div class="text" style="line-height: 1.0;">
+             <span class="red">Hoje</span>, 
+            <span class="red">\${dayOfWeek}</span>, 
+            <span class="red">\${day} de \${month}</span>, será o último dia para aproveitar a Liquida Havan
+          </div>\`;
+      `;
+
+      // Adicione o script ao cabeçalho
+      customHeader.appendChild(scriptElement);
+    }
+
+    // Chame a função para adicionar o código ao cabeçalho
+    addCustomHeader();
+  </script>
+  <!-- Restante do conteúdo do corpo do seu site -->
+</body>
+</html>
+
 	<meta charset="UTF-8">
 			<title>Loja Oficial – loja</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
